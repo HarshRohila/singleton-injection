@@ -1,15 +1,15 @@
 {
-    "name": "#{REPO_NAME}#",
+    "name": "singleton-injection",
     "version": "0.0.0",
     "description": "#{DESC}#",
     "repository": {
         "type": "git",
-        "url": "git://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#.git"
+        "url": "git://github.com/#{USER_OR_ORG}#/singleton-injection.git"
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "test": "echo DODO",
+        "test": "jest",
         "build": "tsc",
         "lint:check": "eslint . --ext .ts,.tsx",
         "lint": "npm run lint:check -- --fix",
@@ -41,17 +41,20 @@
         "!dist/tsconfig.tsbuildinfo"
     ],
     "keywords": [],
-    "homepage": "https://github.com/#{USER_OR_ORG}#/#{REPO_NAME}#",
+    "homepage": "https://github.com/#{USER_OR_ORG}#/singleton-injection",
     "devDependencies": {
+        "@types/jest": "^29.5.0",
         "@types/node": "^18.14.0",
-        "typescript": "^4.9.5",
         "@typescript-eslint/eslint-plugin": "^4.28.5",
         "@typescript-eslint/parser": "^4.28.5",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "husky": "^4.3.8",
+        "jest": "^29.5.0",
         "lint-staged": "^11.1.1",
         "prettier": "^2.3.2",
-        "ts-node": "^10.9.1"
+        "ts-jest": "^29.1.0",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.9.5"
     }
 }
