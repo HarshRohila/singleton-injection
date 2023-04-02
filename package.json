@@ -1,10 +1,10 @@
 {
     "name": "singleton-injection",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "#{DESC}#",
     "repository": {
         "type": "git",
-        "url": "git://github.com/#{USER_OR_ORG}#/singleton-injection.git"
+        "url": "git://github.com/HarshRohila/singleton-injection.git"
     },
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -31,7 +31,7 @@
             "pre-commit": "lint-staged -v"
         }
     },
-    "author": "u/#{USER_OR_ORG}#",
+    "author": "u/HarshRohila",
     "license": "MIT",
     "files": [
         "src/",
@@ -40,8 +40,13 @@
         "!dist/test/",
         "!dist/tsconfig.tsbuildinfo"
     ],
-    "keywords": [],
-    "homepage": "https://github.com/#{USER_OR_ORG}#/singleton-injection",
+    "keywords": [
+        "Singleton",
+        "TypeScript",
+        "Singleton Container",
+        "Dependency Injection"
+    ],
+    "homepage": "https://github.com/HarshRohila/singleton-injection",
     "devDependencies": {
         "@types/jest": "^29.5.0",
         "@types/node": "^18.14.0",
