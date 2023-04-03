@@ -23,6 +23,11 @@ export const container = new SingletonContainer(singletonMap);
 // Get instance in your app with
 import { container } from "./container";
 
+// now you can get same instance of shape anywhere in your code
 const shape = container.get("shape");
 // you will get TS suggestions for parameter of `get`, so no need to worry about spelling mistakes
+
+// Destroy container instances
+container.destroy();
+// after destroy, container.get will create and return new instances
 ```
