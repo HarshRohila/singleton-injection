@@ -1,4 +1,4 @@
-import { SingletonContainer } from "../src/SingletonContainer";
+import { SingletonContainer } from "../src";
 
 const singletonMap = {
     shape: () => new Circle() as Shape,
