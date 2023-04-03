@@ -1,7 +1,7 @@
 {
     "name": "singleton-injection",
-    "version": "1.0.1",
-    "description": "#{DESC}#",
+    "version": "1.0.2",
+    "description": "A simple way to manage singletons in TypeScript projects",
     "repository": {
         "type": "git",
         "url": "git://github.com/HarshRohila/singleton-injection.git"
