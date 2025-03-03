@@ -38,6 +38,23 @@ describe("SingletonContainer", () => {
             expect(shape === otherShape).toBeFalsy();
         });
     });
+
+    describe("mock method", () => {
+        it("replaces original singleton map with the new one", () => {
+            const container = new SingletonContainer(singletonMap);
+            expect(container.get("shape").getName()).toBe("circle");
+
+            container.mock({
+                shape: () => new Square() as Shape
+            });
+
+            expect(container.get("shape").getName()).toBe("square");
+
+            // Resetting the mock
+            container.mock({});
+            expect(container.get("shape").getName()).toBe("circle");
+        });
+    });
 });
 
 class Square implements Shape {
