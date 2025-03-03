@@ -6,20 +6,20 @@ const singletonMap = {
 };
 
 describe("SingletonContainer", () => {
-    describe("get method", () => {
+    describe("resolve method", () => {
         it("returns correct instance", () => {
-            const container = new SingletonContainer(singletonMap);
+            const DI = new SingletonContainer(singletonMap);
 
-            const shape = container.get("shape");
+            const shape = DI.resolve("shape");
 
             expect(shape.getName()).toBe("circle");
         });
 
         it("returns same instance if called again", () => {
-            const container = new SingletonContainer(singletonMap);
+            const DI = new SingletonContainer(singletonMap);
 
-            const shape = container.get("shape");
-            const sameShape = container.get("shape");
+            const shape = DI.resolve("shape");
+            const sameShape = DI.resolve("shape");
 
             expect(shape === sameShape).toBeTruthy();
         });
@@ -27,13 +27,13 @@ describe("SingletonContainer", () => {
 
     describe("destroy method", () => {
         it("destroys container such that if get method called after it, it will return new instance", () => {
-            const container = new SingletonContainer(singletonMap);
+            const DI = new SingletonContainer(singletonMap);
 
-            const shape = container.get("shape");
+            const shape = DI.resolve("shape");
 
-            container.destroy();
+            DI.destroy();
 
-            const otherShape = container.get("shape");
+            const otherShape = DI.resolve("shape");
 
             expect(shape === otherShape).toBeFalsy();
         });
@@ -41,18 +41,18 @@ describe("SingletonContainer", () => {
 
     describe("mock method", () => {
         it("replaces original singleton map with the new one", () => {
-            const container = new SingletonContainer(singletonMap);
-            expect(container.get("shape").getName()).toBe("circle");
+            const DI = new SingletonContainer(singletonMap);
+            expect(DI.resolve("shape").getName()).toBe("circle");
 
-            container.mock({
+            DI.mock({
                 shape: () => new Square() as Shape
             });
 
-            expect(container.get("shape").getName()).toBe("square");
+            expect(DI.resolve("shape").getName()).toBe("square");
 
             // Resetting the mock
-            container.mock({});
-            expect(container.get("shape").getName()).toBe("circle");
+            DI.mock({});
+            expect(DI.resolve("shape").getName()).toBe("circle");
         });
     });
 });

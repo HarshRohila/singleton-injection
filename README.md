@@ -24,10 +24,23 @@ export const container = new SingletonContainer(singletonMap);
 import { container } from "./container";
 
 // now you can get same instance of shape anywhere in your code
-const shape = container.get("shape");
-// you will get TS suggestions for parameter of `get`, so no need to worry about spelling mistakes
+const shape = container.resolve("shape");
+// you will get TS suggestions for parameter of `resolve`, so no need to worry about spelling mistakes
 
 // Destroy container instances
 container.destroy();
-// after destroy, container.get will create and return new instances
+// after destroy, container.resolve will create and return new instances
+```
+
+## Mocking in Tests
+
+```ts
+container.mock({
+    shape: () => new MockedSquare() as Shape
+});
+// With above all `container.resolve("shape")` calls will return this mocked shape
+// Note: mocked instances are not singletons, it will create instance everytime
+
+// To restore mock, you can use same method with empty object, this will restore the original container
+container.mock({});
 ```

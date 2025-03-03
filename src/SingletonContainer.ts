@@ -1,5 +1,5 @@
 interface ISingletonContainer<T extends Record<string, () => unknown>> {
-    get<U extends keyof T>(key: U): ReturnType<T[U]>;
+    resolve<U extends keyof T>(key: U): ReturnType<T[U]>;
     destroy(): void;
 }
 
@@ -18,7 +18,7 @@ export class SingletonContainer<T extends Record<string, () => unknown>>
         this.container = {} as Record<keyof T, unknown>;
     }
 
-    get<U extends keyof T>(key: U): ReturnType<T[U]> {
+    resolve<U extends keyof T>(key: U): ReturnType<T[U]> {
         if (!this.container[key]) {
             const getInstance = this.singletonMap[key];
 
