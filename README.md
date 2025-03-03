@@ -44,3 +44,7 @@ container.mock({
 // To restore mock, you can use same method with empty object, this will restore the original container
 container.mock({});
 ```
+
+## Developing this Project?
+
+[See docs](docs/develop.md)
